@@ -8,7 +8,7 @@ type QuizDatabase={
   noOfQuestions:number
 }
 
-function page(){
+function Page(){
   const [quiz,setQuiz]=useState<QuizDatabase[]>([])
   const [loading,setLoading]=useState(true)
 
@@ -43,4 +43,4 @@ function Card({quizname,questions}:{quizname:string,questions:number}){
     </div>
   )
 }
-export default page
+export default Page

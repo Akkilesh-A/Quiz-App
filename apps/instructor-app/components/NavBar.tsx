@@ -6,6 +6,7 @@ import { signIn,signOut } from 'next-auth/react'
 import { Button } from "@/components/ui/button"
 import { useSession } from 'next-auth/react'
 import { useRouter,usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 
 function NavBar(){
@@ -39,7 +40,7 @@ function NavBar(){
                         <div className=' flex items-center cursor-pointer flex-col'>
                             <div onClick={()=>setUsernameClicked(!usernameClicked)} className='rounded-xl border-2  shadow-[#9187b3] shadow border-[#9187b3] bg-[#CFC1FF] px-4 py-2 flex items-center '>
                                 <h1 className='mr-4'>{username}</h1> 
-                                <img className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src={image} alt="Bordered avatar" />
+                                <Image className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src={image} alt="Bordered avatar" />
                             </div>
                             <div className={usernameClicked?"flex absolute justify-start text-[0.85rem]  bg-white shadow-lg rounded mt-16 flex-col space-y-2":"hidden"}>
                                 <button className=" hover:bg-[#2a67b11e] p-2 px-4 rounded" onClick={() => {signOut(),router.push("/signin")}}>Sign Out</button>

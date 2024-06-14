@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import QuizNameBox from '@/components/QuizNameBox';
 
-function page(){
+function Page(){
   const quizName= useSelector((state : any)=>state.quiz[0])
 
   return (
@@ -30,4 +30,4 @@ function page(){
   )
 }
 
-export default page
+export default Page

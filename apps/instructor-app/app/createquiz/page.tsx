@@ -20,7 +20,7 @@ const emptyQuestion={question:"",options:[],correctAnswer:""}
 
 
 
-function page(){
+function Page(){
     const [questions,setQuestions] =useState<QuestionsType>([emptyQuestion])
     const [options, setOptions] = useState([])
     const [quizName,setQuizName] = useState("Quiz Title")
@@ -164,4 +164,4 @@ function RemoveQuestion({setQuestions,questions} : {setQuestions: any,questions:
 }
 
 
-export default page
+export default Page
