@@ -34,12 +34,16 @@ function Page(){
 
 function Card({quizname,questions}:{quizname:string,questions:number}){
   return(
-    <div className='shadow-lg bg-white p-4 m-4 rounded '>
-      <div>
+    <div className='shadow-lg bg-[#fffbef] p-4 m-4 rounded '>
+      <div className='text-[1.2rem] mb-2'>
         <p className='font-bold'>Quiz Name: {quizname}</p>
         <p>No.of Questions: {questions}</p>
       </div>
-      
+      <hr />
+      <div className='mt-4 flex justify-around'>
+        <button className='bg-[#cfc1ff] text-white p-2 rounded-lg'>View Quiz</button>
+        <button className='bg-[#cfc1ff] text-white p-2 rounded-lg'>Edit Quiz</button>
+      </div>
     </div>
   )
 }

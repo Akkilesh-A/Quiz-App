@@ -37,7 +37,7 @@ function Page(){
     <div className="flex flex-col">
         <div className="flex">
             <InfoBox quizName={quizName} questions={questions.length}/>
-            <div className="flex-1 ">
+            <div className="pl-80 flex-1 ">
                 {quizNameSet ?
                     <div className="flex flex-col">
                         <QuizNameBox quizName={quizName}/>
