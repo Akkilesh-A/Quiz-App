@@ -7,32 +7,6 @@ import QuizNameBox from '@/components/QuizNameBox';
 function Page(){
   const quiz= useSelector((state : any)=>state.quiz[0])
 
-  const quiztree = {
-    quiz: [
-      {
-        quizName: 'sdcvdsfsd',
-        questions: [
-          {
-            question: '2',
-            options: [
-              'dfdsfsdd',
-              'fsdf'
-            ],
-            correctAnswer: 'sdfsdfsdf'
-          },
-          {
-            question: '2',
-            options: [
-              'dfdsfsdd',
-              'fsdf'
-            ],
-            correctAnswer: 'sdfsdfsdf'
-          }
-        ]
-      }
-    ]
-  }
-
   return (
     <div>
         <QuizNameBox quizName={"Review Quiz: " + quiz?.quizName}/>
