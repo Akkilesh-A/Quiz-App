@@ -7,13 +7,12 @@ import { addQuiz } from "../store/currentQuizSlice"
 import { useRouter } from "next/navigation"
 import QuizNameBox from "@/components/QuizNameBox"
 
-type QuestionsType =[
-    {
-        question: string,
-        options: string[],
-        correctAnswer: string
-    }
-]
+type QuestionsType ={
+  question?: string,
+  options: string[],
+  correctAnswer?: string
+}
+
 
 const emptyQuestion={question:"",options:[],correctAnswer:""}
 
@@ -30,14 +29,13 @@ function Page(){
       dispatch(addQuiz(quizObject))
       router.push("/confirmquiz")
     }
+    const questionBox=questions || [emptyQuestion]
 
   return (
     <div className="flex flex-col">
         <div className="flex">
-            {/* <InfoBox quizName={quizName} questions={questions.length}/> */}
-            {/* {questions?.map((question, index) => (
-              <h2 key={index}>{question.question}</h2>)
-            )} */}
+            <InfoBox quizName={quizName} questions={questions.length}/>
+           
             <div className="pl-80 flex-1 ">
                 {quizNameSet ?
                     <div className="flex flex-col">
@@ -72,15 +70,15 @@ function CreateBox({ setQuizName , setQuizNameSet, setQuestions} : {setQuizName:
     )
 }
 
-function QuestionBox({ questions, setQuestions, options, setOptions }: { questions: QuestionsType; setQuestions: any; options: number[]; setOptions: any; }) {
+function QuestionBox({ questions, setQuestions, options, setOptions }: { questions: QuestionsType[]; setQuestions: any; options: number[]; setOptions: any; }) {
   return (
     <div>
       {questions.map((question, index) => (
         <div key={index} className="mx-2 my-2 bg-[#fffbef] p-8 flex-1 w-auto rounded shadow">
           <h3 className="font-semibold text-[1.3rem] mb-2">Question-{index + 1}</h3>
           <div>
-            {index}
-            {questions[index]?.question}
+            {/* {index}
+            {questions[index]?.question} */}
             <input type="text" placeholder="Question" className="mb-2 w-full p-2 border rounded"
               onChange={(e) => {
                 const newQuestions = [...questions];
@@ -116,7 +114,7 @@ function OptionBox({
   numberOfOptions,
 }: {
   options: number[];
-  questions: QuestionsType;
+  questions: QuestionsType[];
   setQuestions: any;
   questionIndex: number;
   numberOfOptions: number;
