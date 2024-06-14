@@ -68,7 +68,7 @@ export default function SignIn() {
                 <span>Continue with Google</span>
             </button>
 
-            <button onClick={
+            {/* <button onClick={
                     async()=>{
                         await signIn("github")
                         router.push("/createquiz")
@@ -93,7 +93,7 @@ export default function SignIn() {
                     </g>
                 </svg>
                 <span>Continue with Github</span>
-            </button>
+            </button> */}
 
             
 
