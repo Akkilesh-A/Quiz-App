@@ -17,13 +17,11 @@ type QuestionsType =[
 
 const emptyQuestion={question:"",options:[],correctAnswer:""}
 
-
-
 function Page(){
-    const [questions,setQuestions] =useState<QuestionsType>([emptyQuestion])
+    const [questions,setQuestions] =useState<QuestionsType[]>([])
     const [options, setOptions] = useState<number[]>([])
     const [quizName,setQuizName] = useState("Quiz Title")
-    const [quizNameSet,setQuizNameSet] = useState(false)
+    const [quizNameSet,setQuizNameSet] = useState(true)
     const dispatch = useDispatch()
     const router = useRouter()
 
@@ -36,7 +34,10 @@ function Page(){
   return (
     <div className="flex flex-col">
         <div className="flex">
-            <InfoBox quizName={quizName} questions={questions.length}/>
+            {/* <InfoBox quizName={quizName} questions={questions.length}/> */}
+            {/* {questions?.map((question, index) => (
+              <h2 key={index}>{question.question}</h2>)
+            )} */}
             <div className="pl-80 flex-1 ">
                 {quizNameSet ?
                     <div className="flex flex-col">
@@ -78,6 +79,8 @@ function QuestionBox({ questions, setQuestions, options, setOptions }: { questio
         <div key={index} className="mx-2 my-2 bg-[#fffbef] p-8 flex-1 w-auto rounded shadow">
           <h3 className="font-semibold text-[1.3rem] mb-2">Question-{index + 1}</h3>
           <div>
+            {index}
+            {questions[index]?.question}
             <input type="text" placeholder="Question" className="mb-2 w-full p-2 border rounded"
               onChange={(e) => {
                 const newQuestions = [...questions];
@@ -147,16 +150,21 @@ function OptionBox({
   );
 }
 
-function AddQuestion({setQuestions,questions} : {setQuestions: any,questions: QuestionsType}){
+function AddQuestion({setQuestions,questions} : {setQuestions: any,questions: QuestionsType[]}){
     return(
         <div className="m-2 px-2 bg-[#CFC1FF] text-center rounded shadow ">
-            <button onClick={()=>setQuestions([...questions,emptyQuestion])} className="flex items-center justify-center p-2"><svg xmlns="http://www.w3.org/2000/svg" height="32" width="28" viewBox="0 0 448 512"><path fill="#000000" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg></button>
+            <button onClick={()=>setQuestions([
+                ...questions,
+                {question: "",
+                options: [],
+                correctAnswer: ""}
+            ])} className="flex items-center justify-center p-2"><svg xmlns="http://www.w3.org/2000/svg" height="32" width="28" viewBox="0 0 448 512"><path fill="#000000" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg></button>
         </div>
     )
 }
 
 
-function RemoveQuestion({setQuestions,questions} : {setQuestions: any,questions: QuestionsType}){
+function RemoveQuestion({setQuestions,questions} : {setQuestions: any,questions: QuestionsType[]}){
     return(
         <div className="m-2 px-2 bg-[#CFC1FF] text-center rounded shadow ">
             <button onClick={()=>setQuestions([...questions.splice(0,questions.length-1)])} className="flex items-center justify-center p-2"><svg xmlns="http://www.w3.org/2000/svg" height="32" width="28" viewBox="0 0 448 512"><path fill="#000000" d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 200H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg></button>

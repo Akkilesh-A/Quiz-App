@@ -4,8 +4,8 @@ function InfoBox({quizName, questions} : {quizName: string, questions: any}){
 
 const [isScrolled, setIsScrolled] = useState(false);
 
-  // function to handle scroll
-  useEffect(() => {
+    // function to handle scroll
+    useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) { 
         setIsScrolled(true);
