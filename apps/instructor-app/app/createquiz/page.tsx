@@ -19,8 +19,8 @@ const emptyQuestion={question:"",options:[],correctAnswer:""}
 function Page(){
     const [questions,setQuestions] =useState<QuestionsType[]>([])
     const [options, setOptions] = useState<number[]>([])
-    const [quizName,setQuizName] = useState("Quiz Title")
-    const [quizNameSet,setQuizNameSet] = useState(true)
+    const [quizName,setQuizName] = useState("")
+    const [quizNameSet,setQuizNameSet] = useState(false)
     const dispatch = useDispatch()
     const router = useRouter()
 
