@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import InfoBox from "@/components/InfoBox"
-import Link from 'next/link'
 import { useDispatch } from "react-redux"
 import { addQuiz } from "../store/currentQuizSlice"
 import { useRouter } from "next/navigation"
@@ -22,7 +21,7 @@ const emptyQuestion={question:"",options:[],correctAnswer:""}
 
 function Page(){
     const [questions,setQuestions] =useState<QuestionsType>([emptyQuestion])
-    const [options, setOptions] = useState([])
+    const [options, setOptions] = useState<number[]>([])
     const [quizName,setQuizName] = useState("Quiz Title")
     const [quizNameSet,setQuizNameSet] = useState(false)
     const dispatch = useDispatch()
@@ -72,79 +71,81 @@ function CreateBox({ setQuizName , setQuizNameSet, setQuestions} : {setQuizName:
     )
 }
 
-
-function QuestionBox({questions,setQuestions,options,setOptions,}: {questions: QuestionsType;setQuestions: any;options: number[];setOptions: any;}) {
-    return (
-      <div>
-        {questions.map((question, index) => (
-          <div key={index} className="mx-2 my-2 bg-[#fffbef]  p-8 flex-1 w-auto rounded shadow">
-            <h3 className="font-semibold text-[1.3rem] mb-2">Question-{index + 1}</h3>
+function QuestionBox({ questions, setQuestions, options, setOptions }: { questions: QuestionsType; setQuestions: any; options: number[]; setOptions: any; }) {
+  return (
+    <div>
+      {questions.map((question, index) => (
+        <div key={index} className="mx-2 my-2 bg-[#fffbef] p-8 flex-1 w-auto rounded shadow">
+          <h3 className="font-semibold text-[1.3rem] mb-2">Question-{index + 1}</h3>
+          <div>
+            <input type="text" placeholder="Question" className="mb-2 w-full p-2 border rounded"
+              onChange={(e) => {
+                const newQuestions = [...questions];
+                newQuestions[index].question = e.target.value;
+                setQuestions(newQuestions);
+              }}
+            />
             <div>
-              <input type="text" placeholder="Question" className="mb-2 w-full p-2 border rounded" 
+              <input
+                type="number"
                 onChange={(e) => {
-                  const newQuestions = [...questions];
-                  newQuestions[index].question = e.target.value;
-                  setQuestions(newQuestions);
+                  const newOptions = [...options];
+                  newOptions[index] = parseInt(e.target.value);
+                  setOptions(newOptions);
                 }}
+                placeholder="No. of Options"
+                className="p-2 border rounded"
               />
-              <div>
-                <input
-                  type="number"
-                  onChange={(e) => {const newOptions = [...options];newOptions[index] = parseInt(e.target.value);setOptions(newOptions);}}
-                  placeholder="No. of Options"
-                  className="p-2 border rounded"
-                />
-                <OptionBox setQuestions={setQuestions} questions={questions} options={options} numberOfOptions={options[index]} />
-              </div>
+              <OptionBox setQuestions={setQuestions} questions={questions} options={options} questionIndex={index} numberOfOptions={options[index]} />
             </div>
           </div>
-        ))}
-      </div>
-    );
-  }
-  
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function OptionBox({
-    options,
-    questions,
-    setQuestions,
-    numberOfOptions,
-  }: {
-    options: number[];
-    questions: QuestionsType;
-    setQuestions: any;
-    numberOfOptions: number;
-  }) {
-    return (
-      <div className="flex flex-wrap my-2">
-        {Array.from({ length: numberOfOptions }, (_, index) => (
-          <input
-            key={index}
-            type="text"
-            placeholder={`Option ${index + 1}`}
-            className=" p-2 my-2 mr-2 border rounded"
-            onChange={(e) => {
-              const newQuestions = [...questions];
-              newQuestions[newQuestions.length - 1].options[index] = e.target.value;
-              setQuestions(newQuestions);
-            }}
-          />
-        ))}
+  options,
+  questions,
+  setQuestions,
+  questionIndex,
+  numberOfOptions,
+}: {
+  options: number[];
+  questions: QuestionsType;
+  setQuestions: any;
+  questionIndex: number;
+  numberOfOptions: number;
+}) {
+  return (
+    <div className="flex flex-wrap my-2">
+      {Array.from({ length: numberOfOptions }, (_, index) => (
         <input
-            // key={index}
-            type="text"
-            placeholder={`Correct Option Number`}
-            className=" p-2 my-2 mr-2 border rounded"
-            onChange={(e) => {
-              const newQuestions = [...questions];
-              newQuestions[newQuestions.length - 1].correctAnswer = e.target.value;
-              setQuestions(newQuestions);
-            }}
+          key={index}
+          type="text"
+          placeholder={`Option ${index + 1}`}
+          className="p-2 my-2 mr-2 border rounded"
+          onChange={(e) => {
+            const newQuestions = [...questions];
+            newQuestions[questionIndex].options[index] = e.target.value;
+            setQuestions(newQuestions);
+          }}
         />
-      </div>
-    );
-  }
-
+      ))}
+      <input
+        type="text"
+        placeholder={`Correct Option Number`}
+        className="p-2 my-2 mr-2 border rounded"
+        onChange={(e) => {
+          const newQuestions = [...questions];
+          newQuestions[questionIndex].correctAnswer = e.target.value;
+          setQuestions(newQuestions);
+        }}
+      />
+    </div>
+  );
+}
 
 function AddQuestion({setQuestions,questions} : {setQuestions: any,questions: QuestionsType}){
     return(
