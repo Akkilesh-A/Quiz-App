@@ -25,7 +25,7 @@ function NavBar(){
   return (
     <div>      
         <nav className='text-black px-8 h-[10vh]  bg-[#f8c93da3] flex items-center justify-between'>
-            <Link href="/" className='font-extrabold text-[2.5rem]'>🎓 iPropel<span className='font-semibold text-[1.5rem]'> Admin</span></Link>
+            <Link href="/" className='font-extrabold text-[2.5rem]'>🎓 iPropel<span className='font-semibold text-[1.5rem]'> Instructor</span></Link>
             <div className='flex items-center'>
                 <ul className='flex mr-4'>
                     <li className='mx-4 font-semibold text-[1.2rem] hover:text-blue-400'>
