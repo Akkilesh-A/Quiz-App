@@ -2,14 +2,14 @@
 
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-type QuizDatabase=[{
+type QuizDatabase={
   id:string,
   quizname:string,
   noOfQuestions:number
-}]
+}
 
-const page = () => {
-  const [quiz,setQuiz]=useState<QuizDatabase>([])
+function page(){
+  const [quiz,setQuiz]=useState<QuizDatabase[]>([])
   const [loading,setLoading]=useState(true)
 
   useEffect(()=>{
@@ -26,7 +26,7 @@ const page = () => {
       <div><h1 className='font-bold text-[2.5rem] text-center'>Quizzes Created By You!</h1></div>
       {loading && <div>Loading...</div>}
       <div className='grid-cols-4 grid'>
-        {quiz.map((quiz,index)=><Card key={quiz.id} quizname={quiz.quizname} questions={quiz.noOfQuestions} />)} 
+        {quiz.map((quiz)=><Card key={quiz.id} quizname={quiz.quizname} questions={quiz.noOfQuestions} />)} 
       </div>
     </div>
   )

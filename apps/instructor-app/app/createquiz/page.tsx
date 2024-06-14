@@ -20,7 +20,7 @@ const emptyQuestion={question:"",options:[],correctAnswer:""}
 
 
 
-const page = () => {
+function page(){
     const [questions,setQuestions] =useState<QuestionsType>([emptyQuestion])
     const [options, setOptions] = useState([])
     const [quizName,setQuizName] = useState("Quiz Title")
