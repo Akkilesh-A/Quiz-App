@@ -37,5 +37,8 @@
 ![image](https://github.com/Akkilesh-A/Quiz-App/assets/136828513/ee601c39-e8b2-4065-8d11-cbcfb663d909)
 ![image](https://github.com/Akkilesh-A/Quiz-App/assets/136828513/ebd194b0-dd46-4e70-8922-d21f29048fbc)
 ![image](https://github.com/Akkilesh-A/Quiz-App/assets/136828513/6636ceed-9d99-4429-8327-1af22c899ab4)
+
+#### Redux in action 
+![image](https://github.com/Akkilesh-A/Quiz-App/assets/136828513/6bf59644-d254-4129-83fe-60bfd26191e8)
 ![image](https://github.com/Akkilesh-A/Quiz-App/assets/136828513/1850f4c9-6c6a-4595-893f-49d7444701d8)
 After this page the quiz can be uploaded to a database
