@@ -1,5 +1,3 @@
-[GitHub - Akkilesh-A/Quiz-App](https://github.com/Akkilesh-A/Quiz-App)
-
 ## Tech Stack:
 
 | Frontend  | Next.js |
