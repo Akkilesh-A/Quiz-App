@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import InfoBox from "@/components/InfoBox"
+import InfoBox from "../../components/InfoBox"
 import { useDispatch } from "react-redux"
 import { addQuiz } from "../store/currentQuizSlice"
 import { useRouter } from "next/navigation"
-import QuizNameBox from "@/components/QuizNameBox"
+import QuizNameBox from "../../components/QuizNameBox"
 
 type QuestionsType ={
   question?: string,

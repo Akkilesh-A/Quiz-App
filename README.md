@@ -10,7 +10,8 @@
 
 ## Instructor App:
 
-Deployed Link - [iPropel Instructor](https://quiz-app-instructor-app.vercel.app/createquiz)
+> [!LINK]
+> <samp> Deployed Link - [iPropel Instructor](https://quiz-app-instructor-app.vercel.app/createquiz) </samp>
 
 ### Functionalities:
 
