@@ -41,7 +41,7 @@ const AttemptQuiz = () => {
       }
     })
     setLoading(false)
-  },[dispatch])
+  },[dispatch, path])
 
   function submitQuiz(){
     const updatedQuizDetails = {quizName : quiz?.quizName, options : learnerAnswers}
@@ -87,7 +87,7 @@ const AttemptQuiz = () => {
               {
                 learnerAnswers.map((response,index)=>{
                     return(
-                        <tr className='m-2'>
+                        <tr key={index} className='m-2'>
                             <td className='border-2 p-2 border-black'>Question - {index+1} </td> <td className='border-2 p-2 border-black'>  {response ? `Option - ${response}` : `Not answered yet!`}</td>
                         </tr>
                     )

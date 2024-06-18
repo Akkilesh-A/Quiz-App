@@ -7,8 +7,8 @@ export function AttemptQuizCard({quizname,questions,quizlink}:{quizname:string,q
     const router = useRouter()
     
     return(
-      <div className='bg-gray-400 shadow-lg p-4 m-4 rounded flex flex-col justify-center items-center'>
-        <div className='flex flex-col justify-center items-center text-[1.2rem]'>
+      <div className='bg-white shadow-lg p-4 m-4 rounded flex flex-col justify-center items-center'>
+        <div className='bg-white flex flex-col justify-center items-center text-[1.2rem]'>
           <p className='font-bold'>Quiz Name: {quizname}</p>
           <p>No.of Questions: {questions}</p>
         </div>
