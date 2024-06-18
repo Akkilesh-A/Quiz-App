@@ -2,10 +2,10 @@
 
 import React,{useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addAnswers, clearAnswers } from '../store/answersSlice';
-import { addQuizQuestions } from "../store/quizSlice"
+import { addAnswers, clearAnswers } from '../../store/answersSlice';
+import { addQuizQuestions, clearQuestions } from "../../store/quizSlice"
 import axios from 'axios'
-import { useRouter} from "next/navigation"
+import { useRouter , usePathname} from "next/navigation"
 
 type QuestionsType ={ 
   question : string,
@@ -15,28 +15,42 @@ type QuestionsType ={
 
 const AttemptQuiz = () => {
   const router = useRouter()
-    const [quizDetails,setQuizDetails] = useState({})
-    const [learnerAnswers,setLearnerAnswers] = useState<number[]>([])
-    const [loading,setLoading] = useState(false)
-    const dispatch = useDispatch()
-    const quiz= useSelector((state : any)=>state.quiz[0])
+  const [learnerAnswers,setLearnerAnswers] = useState<number[]>([])
+  const [loading,setLoading] = useState(false)
+  const dispatch = useDispatch()
+  const pathname = usePathname()
+  const quiz= useSelector((state : any)=>state.quiz[0])
 
-    useEffect(()=>{
-      axios.get("https://6667f9c6f53957909ff5fe12.mockapi.io/api/v1/Quizzes")
-      .then((response)=>{
-        dispatch(addQuizQuestions(response.data[0].quiz[0]))
-      })
-      setLoading(false)
-    },[])
+  let path = "India"
 
-    function submitQuiz(){
-      const updatedQuizDetails = {quizName : quiz?.quizName, options : learnerAnswers}
-      setQuizDetails(updatedQuizDetails);
-      dispatch(clearAnswers(updatedQuizDetails))
-      console.log(updatedQuizDetails)
-      dispatch(addAnswers(updatedQuizDetails))  
-      router.push("/viewscore")
-    }
+  if(pathname.slice(13) === "math"){
+    path = "Basic Math"
+  }
+
+  useEffect(()=>{
+    axios.get("https://6667f9c6f53957909ff5fe12.mockapi.io/api/v1/Quizzes")
+    .then((response)=>{
+      let variable=0;
+      const quizzes = response.data[0].quiz
+      console.log(quizzes)
+      for(let i=0;i<quizzes?.length;i++){
+        if(quizzes[i].quizName==path){
+          dispatch(clearQuestions())
+          dispatch(addQuizQuestions(quizzes[i]))
+        }
+      }
+    })
+    setLoading(false)
+  },[])
+
+  function submitQuiz(){
+    const updatedQuizDetails = {quizName : quiz?.quizName, options : learnerAnswers}
+    dispatch(clearAnswers(updatedQuizDetails))
+    console.log(updatedQuizDetails)
+    dispatch(addAnswers(updatedQuizDetails))  
+    router.push("/viewscore")
+  }
+
   return (
     <div>
         <h1 className='text-center font-bold text-[3rem]'>Attempt Quiz</h1>

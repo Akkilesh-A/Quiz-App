@@ -8,10 +8,13 @@ const quizSlice = createSlice({
     reducers : {
         addQuizQuestions(state,action){
             state.push(action.payload)
+        },
+        clearQuestions(state){
+            state.splice(0)
         }
     }
 
 })
 
-export const {addQuizQuestions} = quizSlice.actions
+export const {addQuizQuestions,clearQuestions} = quizSlice.actions
 export default quizSlice

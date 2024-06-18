@@ -7,7 +7,8 @@
     "./card": "./src/card.tsx",
     "./code": "./src/code.tsx",
     "./viewQuizCard": "./src/viewQuizCard.tsx",
-    "./scoreIndicator": "./src/scoreIndicator.tsx"
+    "./scoreIndicator": "./src/scoreIndicator.tsx",
+    "./attemptQuizCard" : "./src/attemptQuizCard.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
