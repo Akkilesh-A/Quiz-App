@@ -18,8 +18,13 @@ const ViewScore = () => {
 
   return (
     <div>
-        <h1 className='text-center font-bold text-[3rem]'>Your Score!</h1>
-        <ScoreIndicator value={correct} maxValue={quiz[0].questions.length} />
+        {quiz[0].questions ? 
+        <div>
+          <h1 className='text-center font-bold text-[3rem]'>Your Score!</h1>
+          <ScoreIndicator value={correct} maxValue={quiz[0].questions.length} />
+        </div> : 
+        <div>Loading </div>
+        }
     </div>
   )
 }
