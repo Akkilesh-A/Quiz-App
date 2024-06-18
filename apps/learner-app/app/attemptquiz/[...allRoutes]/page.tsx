@@ -41,7 +41,7 @@ const AttemptQuiz = () => {
       }
     })
     setLoading(false)
-  },[])
+  })
 
   function submitQuiz(){
     const updatedQuizDetails = {quizName : quiz?.quizName, options : learnerAnswers}
@@ -65,7 +65,7 @@ const AttemptQuiz = () => {
                     <ul>
                         {question.options.map((option : string ,optionIndex :number)=>{
                             return(
-                                <li className='m-2 text-[1.2rem] flex items-center'>
+                                <li key={optionIndex} className='m-2 text-[1.2rem] flex items-center'>
                                     <input name = {`Question - ${index+1}`}
                                         onChange={(e)=>{
                                         const newLearnerAnswers : number[]= [...learnerAnswers];
