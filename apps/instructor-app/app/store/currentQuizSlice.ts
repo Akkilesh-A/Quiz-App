@@ -1,27 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState :any = [
-  // {
-  //   quizName: 'lol',
-  //   questions: [
-  //     {
-  //       question: 'fgghfgh',
-  //       options: [
-  //         'scsdfdfsd',
-  //         'sdfdsf'
-  //       ],
-  //       correctAnswer: 'dxssdf'
-  //     },
-  //     {
-  //       question: '2',
-  //       options: [
-  //         '2',
-  //         '2'
-  //       ],
-  //       correctAnswer: '2'
-  //     }
-  //   ]
-  // }
 ]
 
 const currentQuizSlice = createSlice({
