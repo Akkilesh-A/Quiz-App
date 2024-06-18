@@ -11,7 +11,7 @@ export function ViewQuizCard({quizname,questions,buttonText1, buttonText2}:{quiz
         </div>
         <hr />
         <div className='mt-4 flex justify-around'>
-          <button className='text-black bg-blue-400 p-2 rounded-lg'>{buttonText1}</button>
+          <button className='bordertext-black bg-blue-400 p-2 rounded-lg'>{buttonText1}</button>
           <button className='bg-blue-500 text-white p-2 rounded-lg'>{buttonText2}</button>
         </div>
       </div>

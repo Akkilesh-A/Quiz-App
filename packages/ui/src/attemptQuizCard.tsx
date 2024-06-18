@@ -12,9 +12,8 @@ export function AttemptQuizCard({quizname,questions,quizlink}:{quizname:string,q
           <p className='font-bold'>Quiz Name: {quizname}</p>
           <p>No.of Questions: {questions}</p>
         </div>
-        <hr />
-        <div className='mt-4 flex justify-around'>
-          <button onClick={()=>{router.push(`/attemptquiz/${quizlink}`)}} className='text-black bg-blue-400 p-2 rounded '>Attempt Quiz</button>
+        <div className='m-4 flex justify-center'>
+          <button onClick={()=>{router.push(`/attemptquiz/${quizlink}`)}} className='bg-blue-500 p-2 rounded m-4 text-center'>Attempt Quiz</button>
         </div>
       </div>
     )

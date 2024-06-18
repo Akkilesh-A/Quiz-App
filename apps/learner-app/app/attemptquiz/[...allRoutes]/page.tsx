@@ -41,7 +41,7 @@ const AttemptQuiz = () => {
       }
     })
     setLoading(false)
-  })
+  },[dispatch])
 
   function submitQuiz(){
     const updatedQuizDetails = {quizName : quiz?.quizName, options : learnerAnswers}
@@ -81,7 +81,7 @@ const AttemptQuiz = () => {
             )
           })}
         </div>
-        <div className='flex flex-col items-center absolute min-w-[20vw] min-h-[50vh] text-center border shadow-lg  p-4 rounded right-20 top-52'>
+        <div className='flex flex-col items-center fixed min-w-[20vw] min-h-[50vh] text-center border shadow-lg  p-4 rounded right-20 top-52'>
             <h2 className='font-bold text-[1.75rem]'>Filled Responses</h2>
             <table >
               {
