@@ -52,7 +52,7 @@ const AttemptQuiz = () => {
   }
 
   return (
-    <div>
+    <div className='px-16 '>
         <h1 className='text-center font-bold text-[3rem]'>Attempt Quiz</h1>
         <h2 className='text-center font-semibold text-[2rem]'>Quiz Title : {quiz?.quizName} </h2>
         <div className='pr-96'>
@@ -83,7 +83,7 @@ const AttemptQuiz = () => {
             )
           })}
         </div>
-        <div className='flex flex-col items-center bg-white fixed min-w-[20vw] min-h-[50vh] text-center border shadow-lg  p-4 rounded right-20 top-52'>
+        <div className='flex flex-col items-center bg-white fixed min-w-[20%] min-h-[50%] text-center border shadow-lg  p-4 rounded right-10 top-[20%]'>
             <h2 className='font-bold text-[1.75rem]'>Filled Responses</h2>
             <table >
               {
