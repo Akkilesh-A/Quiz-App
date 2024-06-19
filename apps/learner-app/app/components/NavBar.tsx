@@ -10,8 +10,8 @@ function NavBar(){
             <Link href="/" className='font-extrabold text-[2.5rem]'>🎓 iPropel<span className='font-semibold text-[1.5rem]'> Learner</span></Link>
             <div className='flex items-center'>
                 <ul className='flex mr-4'>
-                    <li className='mx-4 font-semibold text-[1.2rem] hover:text-blue-400'>
-                        <Link href="/viewquizzes">View Quizzes</Link>
+                    <li className='mx-4 font-semibold text-[1.2rem] rounded p-2 bg-blue-500 hover:bg-blue-500 shadow-lg hover:text-white'>
+                        <a href="https://quiz-instructor-app.vercel.app/signin">Try Creating a QUiz?</a>
                     </li>
                 </ul>
             </div>

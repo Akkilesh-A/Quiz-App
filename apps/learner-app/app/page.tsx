@@ -6,9 +6,9 @@ export default function Home() {
   const router = useRouter()
   return (
     <div  className='flex justify-center items-center h-[90vh]'>
-      <div className=" rounded-xl shadow-lg flex justify-between h-[80vh] items-center">
+      <div className="bg-white rounded-xl shadow-lg flex justify-between h-[80vh] items-center">
           <div className="flex m-4 flex-1 flex-col flex-wrap ">
-            <h1 className='text-[7rem] font-extrabold pl-[7rem]'>🎓iPropel</h1>
+            <h1 className='text-[7rem] font-extrabold text-center'>🎓iPropel</h1>
             <h1 className='text-[2rem] text-center font-bold'>Where Education meets Revolution</h1>
             <p className='text-[1.5rem] text-center '>Attempt Quizzes and get scores!</p>
           </div>
