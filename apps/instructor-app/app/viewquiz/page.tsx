@@ -24,7 +24,7 @@ function Page(){
   return (
     <div>
       <div><h1 className='font-bold text-[2.5rem] text-center'>Quizzes Created By You!</h1></div>
-      {loading && <div>Loading...</div>}
+      {loading && <img src="/Animation.gif" />}
       <div className='grid-cols-4 grid'>
         {quiz.map((quiz)=><Card key={quiz.id} quizname={quiz.quizname} questions={quiz.noOfQuestions} />)} 
       </div>

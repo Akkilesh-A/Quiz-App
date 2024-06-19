@@ -26,7 +26,7 @@ const ViewScore = () => {
           <ScoreIndicator value={correct} maxValue={quiz[0].questions.length} />
         </div>
       ) : (
-        <div>Loading...</div>
+        <div><img src="/Animation.gif" /></div>
       )}
     </div>
   )
