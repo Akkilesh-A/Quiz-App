@@ -16,7 +16,7 @@ type QuestionsType ={
 const AttemptQuiz = () => {
   const router = useRouter()
   const [learnerAnswers,setLearnerAnswers] = useState<number[]>([])
-  const [loading,setLoading] = useState(false)
+  const [loading,setLoading] = useState(true)
   const dispatch = useDispatch()
   const pathname = usePathname()
   const quiz= useSelector((state : any)=>state.quiz[0])
@@ -40,7 +40,8 @@ const AttemptQuiz = () => {
         }
       }
     })
-    setLoading(false)
+    setTimeout(()=>{setLoading(false)},2000)
+    
   },[dispatch, path])
 
   function submitQuiz(){
@@ -56,7 +57,7 @@ const AttemptQuiz = () => {
         <h1 className='text-center font-bold text-[3rem]'>Attempt Quiz</h1>
         <h2 className='text-center font-semibold text-[2rem]'>Quiz Title : {quiz?.quizName} </h2>
         <div className='pr-96'>
-          {loading ? <div className='h-[50vh] flex items-center justify-center '>Loading....</div> : 
+          {loading ? <div className='h-[50vh] flex items-center justify-center '><img src="/Animation.gif" /></div> : 
           quiz?.questions.map((question : QuestionsType,index : number)=>{
             return(
                 <div className='bg-white border p-4 rounded shadow m-2' key={index}>
