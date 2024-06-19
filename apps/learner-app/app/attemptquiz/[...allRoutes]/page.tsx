@@ -59,29 +59,31 @@ const AttemptQuiz = () => {
           {loading ? <div className='h-[50vh] flex items-center justify-center '>Loading....</div> : 
           quiz?.questions.map((question : QuestionsType,index : number)=>{
             return(
-                <div className='border p-4 rounded shadow m-2' key={index}>
-                    <h2 className='font-extrabold'>Question - {index+1}</h2>
-                    <h1 className='font-semibold text-[1.3rem]'>{question.question}</h1>
-                    <ul>
-                        {question.options.map((option : string ,optionIndex :number)=>{
-                            return(
-                                <li key={optionIndex} className='m-2 text-[1.2rem] flex items-center'>
-                                    <input name = {`Question - ${index+1}`}
-                                        onChange={(e)=>{
-                                        const newLearnerAnswers : number[]= [...learnerAnswers];
-                                        newLearnerAnswers[index] = optionIndex+1;
-                                        setLearnerAnswers(newLearnerAnswers)
+                <div className='bg-white border p-4 rounded shadow m-2' key={index}>
+                    <h2 className='font-extrabold underline mb-4'>Question - {index+1}</h2>
+                    <div className='px-4'>
+                      <h1 className='font-semibold text-[1.3rem]'>{question.question}</h1>
+                      <ul>
+                          {question.options.map((option : string ,optionIndex :number)=>{
+                              return(
+                                  <li key={optionIndex} className='m-2 text-[1.2rem] flex items-center'>
+                                      <input name = {`Question - ${index+1}`}
+                                          onChange={(e)=>{
+                                          const newLearnerAnswers : number[]= [...learnerAnswers];
+                                          newLearnerAnswers[index] = optionIndex+1;
+                                          setLearnerAnswers(newLearnerAnswers)
 
-                                    }} type='radio' /><p>{optionIndex+1} : {option}</p>
-                                </li>
-                            )
-                        })}
-                    </ul>
+                                      }} type='radio' /><p>{optionIndex+1} : {option}</p>
+                                  </li>
+                              )
+                          })}
+                      </ul>
+                    </div>
                 </div>
             )
           })}
         </div>
-        <div className='flex flex-col items-center fixed min-w-[20vw] min-h-[50vh] text-center border shadow-lg  p-4 rounded right-20 top-52'>
+        <div className='flex flex-col items-center bg-white fixed min-w-[20vw] min-h-[50vh] text-center border shadow-lg  p-4 rounded right-20 top-52'>
             <h2 className='font-bold text-[1.75rem]'>Filled Responses</h2>
             <table >
               {
