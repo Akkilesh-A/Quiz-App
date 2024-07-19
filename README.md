@@ -11,7 +11,7 @@
 ## Instructor App:
 
 > [LINK]
-> <samp> Deployed Link - [iPropel Instructor](https://quiz-app-instructor-app.vercel.app/createquiz) </samp>
+> <samp> Deployed Link - [iPropel Instructor](https://quiz-instructor-app.vercel.app/) </samp>
 
 ### Functionalities:
 
